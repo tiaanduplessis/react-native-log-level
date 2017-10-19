@@ -76,7 +76,7 @@ $ yarn add react-native-log-level
 ## Usage
 
 ```js
-import createLogger from './index'
+import createLogger from 'react-native-log-level'
 
 // Create a instance
 const log = createLogger({

@@ -1,0 +1,29 @@
+{
+  "name": "react-native-log-level",
+  "version": "1.0.0",
+  "description": "Multi level logger for React Native",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/tiaanduplessis/react-native-log-level",
+    "type": "git"
+  },
+  "homepage": "https://github.com/tiaanduplessis/react-native-log-level",
+  "bugs": "https://github.com/tiaanduplessis/react-native-log-level",
+  "main": "index.js",
+   
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "npm run format",
+    "format": "prettier-standard index.js",
+    "start": "npm run test",
+    "precommit": "npm test",
+    "pretest": "npm run format"
+  },
+  "author": "tiaanduplessis <tiaanduplessis@hotmail.com>",
+  "devDependencies": {
+    "husky": "^0.14.3", 
+    "prettier-standard": "^7.0.3"
+  }
+}

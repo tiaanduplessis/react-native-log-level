@@ -62,7 +62,7 @@
 - Includes 5 different log levels (`trace`, `debug`, `info`, `warn` & `error`)
 - Colorized output
 - No external dependencies
-- Returns the value provided for cleaner logging.
+- Returns the value provided for cleaner logging
 - Only logs during development
 
 ## Install

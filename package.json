@@ -10,12 +10,13 @@
   "homepage": "https://github.com/tiaanduplessis/react-native-log-level",
   "bugs": "https://github.com/tiaanduplessis/react-native-log-level",
   "main": "index.js",
-   
   "files": [
-    "index.js"
+    "index.js",
+    "test.js"
   ],
   "scripts": {
-    "test": "npm run format",
+    "test": "jest",
+    "test:cov": "npm run test -- --coverage",
     "format": "prettier-standard index.js",
     "start": "npm run test",
     "precommit": "npm test",
@@ -23,7 +24,21 @@
   },
   "author": "tiaanduplessis <tiaanduplessis@hotmail.com>",
   "devDependencies": {
-    "husky": "^0.14.3", 
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react-native": "^4.0.0",
+    "consolemock": "^1.0.1",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
     "prettier-standard": "^7.0.3"
+  },
+  "babel": {
+    "presets": [
+      "react-native"
+    ]
+  },
+  "jest": {
+    "globals": {
+      "__DEV__": true
+    }
   }
 }

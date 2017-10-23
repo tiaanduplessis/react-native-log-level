@@ -62,6 +62,8 @@
 
 ## Features
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tiaanduplessis/react-native-log-level.svg)](https://greenkeeper.io/)
+
 - Includes 5 different log levels (`trace`, `debug`, `info`, `warn` & `error`)
 - Colorized output
 - No external dependencies

@@ -33,7 +33,12 @@ function createLogger ({ level = 'info' } = {}) {
     const { color } = levels[level]
     const css = `color: #fff;font-weight:bold; background-color: ${color}; padding: 3px 3px;`
 
-    return (message, data = '') => {
+    return (message = '', data = '') => {
+      if (typeof message !== 'string') {
+        data = message
+        message = ''
+      }
+
       const output = `%c${getTimeStamp()} ${level
         .toUpperCase()
         .padEnd(6)}%c ${message}`

@@ -24,7 +24,6 @@
   },
   "author": "tiaanduplessis <tiaanduplessis@hotmail.com>",
   "devDependencies": {
-    "babel-preset-env": "^1.6.1",
     "babel-preset-react-native": "^4.0.0",
     "consolemock": "^1.0.1",
     "husky": "^0.14.3",

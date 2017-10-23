@@ -26,6 +26,9 @@
     <a href="https://codecov.io/gh/tiaanduplessis/react-native-log-level">
   <img src="https://codecov.io/gh/tiaanduplessis/react-native-log-level/branch/master/graph/badge.svg" alt="Codecov" />
 </a>
+    <a href="https://greenkeeper.io/">
+    <img src="https://badges.greenkeeper.io/tiaanduplessis/react-native-log-level.svg" alt="Greenkeeper" />
+  </a>
   <a href="https://github.com/tiaanduplessis/react-native-log-level/blob/master/LICENSE">
     <img src="https://img.shields.io/npm/l/react-native-log-level.svg?style=flat-square" alt="project license" />
   </a>
@@ -61,8 +64,6 @@
 </details>
 
 ## Features
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/tiaanduplessis/react-native-log-level.svg)](https://greenkeeper.io/)
 
 - Includes 5 different log levels (`trace`, `debug`, `info`, `warn` & `error`)
 - Colorized output

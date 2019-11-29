@@ -1,57 +1,62 @@
-const isDEV = !!__DEV__
-
 const pad = time => time.padStart(2, '0')
 
-function getTimeStamp () {
+const getTimeStamp = () => {
   const date = new Date()
   const hours = pad(date.getHours().toString())
   const minutes = pad(date.getMinutes().toString())
   const secs = pad(date.getSeconds().toString())
+
   return `${hours}:${minutes}:${secs}`
 }
 
-function echo (message, data) {
-  return data || message
-}
+const echo = (message, data) => data || message
+
+const createLevel = (priority, color) => ({
+  priority,
+  color
+})
 
 const levels = {
-  trace: { priority: 10, color: '#6699cc' },
-  debug: { priority: 20, color: '#66cccc' },
-  info: { priority: 30, color: '#99cc99' },
-  warn: { priority: 40, color: '#ffcc66' },
-  error: { priority: 50, color: '#f2777a' }
+  trace: createLevel(10, '#6699cc'),
+  debug: createLevel(20, '#66cccc'),
+  info: createLevel(30, '#99cc99'),
+  warn: createLevel(40, '#ffcc66'),
+  error: createLevel(50, '#f2777a')
 }
 
-function createLogger ({ level = 'info' } = {}) {
-  if (!levels[level]) {
-    throw Error('Invalid log level set')
-  }
-
-  const logger = {}
+const createLogger = ({ level = 'info', dev = !!__DEV__ } = {}) => {
+  if (!levels[level]) throw Error('Invalid log level set')
 
   const log = level => {
     const { color } = levels[level]
-    const css = `color: #fff;font-weight:bold; background-color: ${color}; padding: 3px 3px;`
+    const css = `color:#fff;font-weight:bold;background-color:${color};padding:3px;`
 
     return (message = '', data = '') => {
-      if (typeof message !== 'string') {
-        data = message
-        message = ''
-      }
+      const messageIsString = typeof message === 'string'
+      const dataOutput = !messageIsString ? message : data
+      const messageOutput = !messageIsString ? '' : message
 
-      const output = `%c${getTimeStamp()} ${level
-        .toUpperCase()
-        .padEnd(6)}%c ${message}`
-      console.log(output, css, 'color: inherit;', data)
-      return data || message
+      const levelStringFormatted = level.toUpperCase().padEnd(6)
+      const timeStampValue = getTimeStamp()
+
+      const output = `%c${timeStampValue} ${levelStringFormatted}%c ${messageOutput}`
+
+      console.log(output, css, 'color:inherit;', dataOutput)
+
+      return dataOutput || messageOutput
     }
   }
 
-  for (let current in levels) {
+  const getAllTypeOfLogs = (obj, current) => {
     const shouldLog =
-      levels[current].priority >= levels[level].priority && isDEV
-    logger[current] = shouldLog ? log(current) : echo
+      levels[current].priority >= levels[level].priority && dev
+
+    const shouldLogResponse = shouldLog ? log(current) : echo
+
+    return { ...obj, [current]: shouldLogResponse }
   }
+
+  const logger = Object.keys(levels).reduce(getAllTypeOfLogs, {})
 
   return logger
 }

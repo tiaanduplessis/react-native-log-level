@@ -24,16 +24,16 @@
   },
   "author": "tiaanduplessis <tiaanduplessis@hotmail.com>",
   "devDependencies": {
-    "babel-preset-react-native": "^5.0.0",
-    "consolemock": "^1.0.1",
-    "husky": "^2.0.0",
-    "jest": "^22.0.0",
-    "prettier-standard": "^8.0.0"
+    "consolemock": "^1.1.0",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.57.0",
+    "prettier-standard": "^16.0.0"
   },
   "babel": {
-    "presets": [
-      "react-native"
-    ]
+      "presets": [
+        "module:metro-react-native-babel-preset"
+      ]
   },
   "jest": {
     "globals": {

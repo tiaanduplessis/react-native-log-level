@@ -48,8 +48,7 @@ const createLogger = ({ level = 'info', dev = !!__DEV__ } = {}) => {
   }
 
   const getAllTypeOfLogs = (obj, current) => {
-    const shouldLog =
-      levels[current].priority >= levels[level].priority && dev
+    const shouldLog = levels[current].priority >= levels[level].priority && dev
 
     const shouldLogResponse = shouldLog ? log(current) : echo
 
